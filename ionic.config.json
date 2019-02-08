@@ -1,0 +1,7 @@
+{
+  "name": "poc-geo",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
