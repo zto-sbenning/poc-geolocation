@@ -4,11 +4,20 @@
       Ionic Blank
     </ion-title>
   </ion-navbar>
+
+  <ion-avatar>
+
+  </ion-avatar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
+  <button ion-button (click)="getPosition()" color="primary" [disabled]="gettingPosition">{{ gettingPosition ? 'LOADING ...' : 'POSITION' }}</button>
+  <button ion-button (click)="change()" color="{{ authorized ? 'danger' : 'secondary' }}" [disabled]="gettingPosition">CHANGE AUTHORISATION</button>
+  <p>Authorized: {{ authorized }}</p>
+  <p *ngIf="!errorString && authorized">Position:
+    <span *ngIf="gettingPosition">Loading ...</span>
+    <span *ngIf="!gettingPosition">{{ latitude }}, {{ longitude }}</span>.
   </p>
+  <p *ngIf="errorString">Error: {{ errorString }}.</p>
 </ion-content>
+
